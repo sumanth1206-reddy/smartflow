@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json'
   }
@@ -67,7 +67,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('smartflow_refresh_token')
       if (refreshToken) {
         try {
-          const res = await axios.post('/api/auth/refresh', {}, {
+          const res = await axios.post((import.meta.env.VITE_API_URL || '/api') + '/auth/refresh', {}, {
             headers: { Authorization: `Bearer ${refreshToken}` }
           })
           const newToken = res.data.token
