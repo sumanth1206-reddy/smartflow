@@ -61,7 +61,7 @@ export default function Login({ darkMode, setDarkMode }) {
 
   useEffect(() => {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-    if (clientId && window.google) {
+    if (clientId && !clientId.includes("your-actual-client-id") && window.google) {
       try {
         window.google.accounts.id.initialize({
           client_id: clientId,
@@ -154,8 +154,8 @@ export default function Login({ darkMode, setDarkMode }) {
     }
 
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-    if (!clientId) {
-      toast.error("VITE_GOOGLE_CLIENT_ID is not configured in your environment variables.");
+    if (!clientId || clientId.includes("your-actual-client-id")) {
+      toast.error("Google Sign-In is not configured yet. Please set up a valid Google Client ID in your environment variables.");
       return;
     }
 
