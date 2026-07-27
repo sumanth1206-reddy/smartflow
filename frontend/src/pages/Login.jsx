@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import toast from "react-hot-toast";
@@ -58,6 +58,31 @@ export default function Login({ darkMode, setDarkMode }) {
   const [errors, setErrors] = useState({});
   const [authError, setAuthError] = useState("");
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+
+  useEffect(() => {
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    if (clientId && window.google) {
+      try {
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          callback: async (response) => {
+            if (response.credential) {
+              const result = await loginGoogle(response.credential, null);
+              if (result.success) {
+                toast.success("Welcome back to SmartFlow via Google!");
+                navigate("/");
+              } else {
+                toast.error(result.message || "Google Sign-In failed.");
+              }
+            }
+          }
+        });
+        window.google.accounts.id.prompt();
+      } catch (error) {
+        console.error("Failed to initialize Google One Tap", error);
+      }
+    }
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -135,27 +160,31 @@ export default function Login({ darkMode, setDarkMode }) {
     }
 
     try {
-      const client = window.google.accounts.oauth2.initTokenClient({
-        client_id: clientId,
-        scope: "email profile",
-        callback: async (tokenResponse) => {
-          if (tokenResponse && tokenResponse.access_token) {
-            const result = await loginGoogle(tokenResponse.access_token);
-            if (result.success) {
-              toast.success("Welcome back to SmartFlow via Google!");
-              navigate("/");
-            } else {
-              toast.error(result.message || "Google Sign-In failed.");
+      window.google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+          const client = window.google.accounts.oauth2.initTokenClient({
+            client_id: clientId,
+            scope: "email profile",
+            callback: async (tokenResponse) => {
+              if (tokenResponse && tokenResponse.access_token) {
+                const result = await loginGoogle(null, tokenResponse.access_token);
+                if (result.success) {
+                  toast.success("Welcome back to SmartFlow via Google!");
+                  navigate("/");
+                } else {
+                  toast.error(result.message || "Google Sign-In failed.");
+                }
+              } else {
+                toast.error("Google authentication was cancelled.");
+              }
+            },
+            error_callback: (err) => {
+              toast.error(`Google authentication error: ${err.message || err}`);
             }
-          } else {
-            toast.error("Google authentication was cancelled.");
-          }
-        },
-        error_callback: (err) => {
-          toast.error(`Google authentication error: ${err.message || err}`);
+          });
+          client.requestAccessToken();
         }
       });
-      client.requestAccessToken();
     } catch (error) {
       console.error(error);
       toast.error("Could not initialize Google Sign-In.");

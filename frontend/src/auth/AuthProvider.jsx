@@ -42,9 +42,9 @@ export function AuthProvider({ children }) {
     };
   }
 
-  async function loginGoogle(accessToken) {
+  async function loginGoogle(idToken, accessToken) {
     setLoading(true);
-    const response = await loginGoogleService(accessToken);
+    const response = await loginGoogleService(idToken, accessToken);
     if (response.success) {
       setUser(response.user);
       saveAuth(response.user, response.token, true);

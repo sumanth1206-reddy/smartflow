@@ -87,12 +87,17 @@ def google_login():
     import uuid
     try:
         data = request.get_json()
+        id_token = data.get('id_token')
         access_token = data.get('access_token')
-        if not access_token:
-            return jsonify({"error": "Missing access_token"}), 400
+        
+        if id_token:
+            userinfo_url = f"https://oauth2.googleapis.com/tokeninfo?id_token={id_token}"
+        elif access_token:
+            userinfo_url = f"https://www.googleapis.com/oauth2/v3/userinfo?access_token={access_token}"
+        else:
+            return jsonify({"error": "Missing access_token or id_token"}), 400
             
-        # Verify the access token with Google's API
-        userinfo_url = f"https://www.googleapis.com/oauth2/v3/userinfo?access_token={access_token}"
+        # Verify the token with Google's API
         try:
             req = urllib.request.Request(userinfo_url)
             with urllib.request.urlopen(req) as response:

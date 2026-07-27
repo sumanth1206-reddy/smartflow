@@ -34,9 +34,12 @@ export const login = async (email, password) => {
 }
 
 
-export const loginGoogle = async (access_token) => {
+export const loginGoogle = async (id_token, access_token) => {
   try {
-    const response = await api.post('/auth/google', { access_token })
+    const payload = {}
+    if (id_token) payload.id_token = id_token
+    if (access_token) payload.access_token = access_token
+    const response = await api.post('/auth/google', payload)
     if (response.data && response.data.success) {
       localStorage.setItem('smartflow_token', response.data.token)
       if (response.data.refreshToken) {
