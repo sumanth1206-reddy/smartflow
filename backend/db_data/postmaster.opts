@@ -1,0 +1,1 @@
+/usr/lib/postgresql/18/bin/postgres "-D" "backend/db_data" "-p" "5432" "-h" "localhost" "-k" "/home/kbali/Downloads/smartflow/backend/db_data"

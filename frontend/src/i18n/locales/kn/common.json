@@ -1,0 +1,77 @@
+{
+  "app": {
+    "title": "ಸ್ಮಾರ್ಟ್‌ಫ್ಲೋ",
+    "tagline": "AI ಚಾಲಿತ ಇನ್ವೆಂಟರಿ ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಸಿಸ್ಟಮ್",
+    "version": "ಆವೃತ್ತಿ 1.0.0 • © 2026 ಸ್ಮಾರ್ಟ್‌ಫ್ಲೋ"
+  },
+  "nav": {
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "products": "ಉತ್ಪನ್ನಗಳು",
+    "inventory": "ಇನ್ವೆಂಟರಿ",
+    "categories": "ವರ್ಗಗಳು",
+    "suppliers": "ಸರಬರಾಜುದಾರರು",
+    "billing": "ಬಿಲ್ಲಿಂಗ್",
+    "sales": "ಮಾರಾಟದ ಇತಿಹಾಸ",
+    "reports": "ವರದಿಗಳು",
+    "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "logout": "ಸೈನ್ ಔಟ್"
+  },
+  "auth": {
+    "loginTitle": "ಸ್ಮಾರ್ಟ್‌ಫ್ಲೋಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ",
+    "registerTitle": "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ರಚಿಸಿ",
+    "emailLabel": "ಇಮೇಲ್ ವಿಳಾಸ",
+    "emailPlaceholder": "name@company.com",
+    "passwordLabel": "ಪಾಸ್‌ವರ್ಡ್",
+    "passwordPlaceholder": "••••••••",
+    "rememberMe": "ನನ್ನನ್ನು ನೆನಪಿಡಿ",
+    "forgotPassword": "ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿದ್ದೀರಾ?",
+    "signInButton": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ",
+    "googleSignIn": "ಗೂಗಲ್‌ನೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ",
+    "signUpPrompt": "ಖಾತೆ ಇಲ್ಲವೇ?",
+    "signUpLink": "ಸೈನ್ ಅಪ್ ಮಾಡಿ",
+    "signInPrompt": "ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ?",
+    "signInLink": "ಸೈನ್ ಇನ್ ಮಾಡಿ",
+    "fullNameLabel": "ಪೂರ್ಣ ಹೆಸರು",
+    "fullNamePlaceholder": "ಜಾನ್ ಡೋ",
+    "confirmPasswordLabel": "ಪಾಸ್‌ವರ್ಡ್ ದೃಢೀಕರಿಸಿ",
+    "createAccountButton": "ಖಾತೆ ರಚಿಸಿ"
+  },
+  "dashboard": {
+    "overview": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಅವಲೋಕನ",
+    "totalValuation": "ಒಟ್ಟು ಇನ್ವೆಂಟರಿ ಮೌಲ್ಯಮಾಪನ",
+    "activeSkus": "ಸಕ್ರಿಯ ಉತ್ಪನ್ನಗಳು (SKUs)",
+    "lowStockAlerts": "ಕಡಿಮೆ ಸ್ಟಾಕ್ ಎಚ್ಚರಿಕೆಗಳು",
+    "itemsRequireAction": "ಕ್ರಮ ಅಗತ್ಯವಿರುವ ವಸ್ತುಗಳು",
+    "revenueGrowth": "ಆದಾಯ ಬೆಳವಣಿಗೆ",
+    "aiForecastAlert": "AI ಮುನ್ಸೂಚನೆ ಎಚ್ಚರಿಕೆ",
+    "recentSales": "ಇತ್ತೀಚಿನ ಮಾರಾಟಗಳು",
+    "quickActions": "ತ್ವರಿತ ಕ್ರಿಯೆಗಳು",
+    "aiInsightsTitle": "AI ಚಾಲಿತ ಒಳನೋಟಗಳು ಮತ್ತು ಶಿಫಾರಸುಗಳು",
+    "demandForecastTitle": "30-ದಿನಗಳ ಸ್ವಯಂಚಾಲಿತ ಬೇಡಿಕೆ ಮುನ್ಸೂಚನೆ",
+    "topProductsTitle": "ಉನ್ನತ ಪ್ರದರ್ಶನ ನೀಡುವ ಉತ್ಪನ್ನಗಳು"
+  },
+  "buttons": {
+    "add": "ಸೇರಿಸಿ",
+    "edit": "ಸಂಪಾದಿಸಿ",
+    "delete": "ಅಳಿಸಿ",
+    "save": "ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ",
+    "cancel": "ರದ್ದುಗೊಳಿಸಿ",
+    "search": "ಹುಡುಕಿ...",
+    "filter": "ಫಿಲ್ಟರ್ ಮಾಡಿ",
+    "export": "PDF ರಫ್ತು ಮಾಡಿ",
+    "refresh": "ಮರುನೋಂದಾಯಿಸಿ"
+  },
+  "common": {
+    "language": "ಭಾಷೆ",
+    "selectLanguage": "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "status": "ಸ್ಥಿತಿ",
+    "actions": "ಕ್ರಿಯೆಗಳು",
+    "price": "ಬೆಲೆ",
+    "quantity": "ಪ್ರಮಾಣ",
+    "category": "ವರ್ಗ",
+    "supplier": "ಸರಬರಾಜುದಾರ",
+    "date": "ದಿನಾಂಕ",
+    "total": "ಒಟ್ಟು",
+    "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
+  }
+}

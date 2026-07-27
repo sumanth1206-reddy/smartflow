@@ -1,0 +1,77 @@
+{
+  "app": {
+    "title": "स्मार्टफ्लो",
+    "tagline": "AI आधारित इन्वेंटरी प्रबंधन प्रणाली",
+    "version": "संस्करण 1.0.0 • © 2026 स्मार्टफ्लो"
+  },
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "products": "उत्पाद",
+    "inventory": "इन्वेंटरी",
+    "categories": "श्रेणियां",
+    "suppliers": "आपूर्तिकर्ता",
+    "billing": "बिलिंग",
+    "sales": "बिक्री इतिहास",
+    "reports": "रिपोर्ट्स",
+    "settings": "सेटिंग्स",
+    "logout": "साइन आउट"
+  },
+  "auth": {
+    "loginTitle": "स्मार्टफ्लो में साइन इन करें",
+    "registerTitle": "अपना खाता बनाएं",
+    "emailLabel": "ईमेल पता",
+    "emailPlaceholder": "name@company.com",
+    "passwordLabel": "पासवर्ड",
+    "passwordPlaceholder": "••••••••",
+    "rememberMe": "मुझे याद रखें",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "signInButton": "डैशबोर्ड में साइन इन करें",
+    "googleSignIn": "गूगल के साथ साइन इन करें",
+    "signUpPrompt": "खाता नहीं है?",
+    "signUpLink": "साइन अप करें",
+    "signInPrompt": "पहले से खाता है?",
+    "signInLink": "साइन इन करें",
+    "fullNameLabel": "पूरा नाम",
+    "fullNamePlaceholder": "जॉन डो",
+    "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+    "createAccountButton": "खाता बनाएं"
+  },
+  "dashboard": {
+    "overview": "डैशबोर्ड अवलोकन",
+    "totalValuation": "कुल इन्वेंटरी मूल्य",
+    "activeSkus": "सक्रिय उत्पाद (SKUs)",
+    "lowStockAlerts": "कम स्टॉक अलर्ट",
+    "itemsRequireAction": "कार्रवाई योग्य वस्तुएं",
+    "revenueGrowth": "राजस्व वृद्धि",
+    "aiForecastAlert": "AI पूर्वानुमान चेतावनी",
+    "recentSales": "हाल की बिक्री",
+    "quickActions": "त्वरित कार्य",
+    "aiInsightsTitle": "AI आधारित अंतर्दृष्टि और सिफारिशें",
+    "demandForecastTitle": "30-दिवसीय स्वचालित मांग पूर्वानुमान",
+    "topProductsTitle": "सर्वश्रेष्ठ प्रदर्शन करने वाले उत्पाद"
+  },
+  "buttons": {
+    "add": "जोड़ें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "search": "खोजें...",
+    "filter": "फ़िल्टर करें",
+    "export": "PDF निर्यात करें",
+    "refresh": "रीफ्रेश करें"
+  },
+  "common": {
+    "language": "भाषा",
+    "selectLanguage": "भाषा चुनें",
+    "status": "स्थिति",
+    "actions": "कार्रवाई",
+    "price": "मूल्य",
+    "quantity": "मात्रा",
+    "category": "श्रेणी",
+    "supplier": "आपूर्तिकर्ता",
+    "date": "दिनांक",
+    "total": "कुल",
+    "loading": "लोड हो रहा है..."
+  }
+}

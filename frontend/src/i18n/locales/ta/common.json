@@ -1,0 +1,77 @@
+{
+  "app": {
+    "title": "ஸ்மார்ட்ஃப்ளோ",
+    "tagline": "AI இயங்கும் சரக்கு மேலாண்மை அமைப்பு",
+    "version": "பதிப்பு 1.0.0 • © 2026 ஸ்மார்ட்ஃப்ளோ"
+  },
+  "nav": {
+    "dashboard": "டாஷ்போர்டு",
+    "products": "தயாரிப்புகள்",
+    "inventory": "சரக்கு",
+    "categories": "பிரிவுகள்",
+    "suppliers": "வழங்குனர்கள்",
+    "billing": "பில்லிங்",
+    "sales": "விற்பனை வரலாறு",
+    "reports": "அறிக்கைகள்",
+    "settings": "அமைப்புகள்",
+    "logout": "வெளியேறு"
+  },
+  "auth": {
+    "loginTitle": "ஸ்மார்ட்ஃப்ளோவில் உள்நுழைக",
+    "registerTitle": "உங்கள் கணக்கை உருவாக்குங்கள்",
+    "emailLabel": "மின்னஞ்சல் முகவரி",
+    "emailPlaceholder": "name@company.com",
+    "passwordLabel": "கடவுச்சொல்",
+    "passwordPlaceholder": "••••••••",
+    "rememberMe": "என்னை நினைவில் கொள்",
+    "forgotPassword": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+    "signInButton": "டாஷ்போர்டில் உள்நுழைக",
+    "googleSignIn": "கூகிள் மூலம் உள்நுழைக",
+    "signUpPrompt": "கணக்கு இல்லையா?",
+    "signUpLink": "பதிவு செய்யுங்",
+    "signInPrompt": "ஏற்கனவே கணக்கு உள்ளதா?",
+    "signInLink": "உள்நுழைக",
+    "fullNameLabel": "முழு பெயர்",
+    "fullNamePlaceholder": "ஜான் டோ",
+    "confirmPasswordLabel": "கடவுச்சொல்லை உறுதிப்படுத்துக",
+    "createAccountButton": "கணக்கை உருவாக்கு"
+  },
+  "dashboard": {
+    "overview": "டாஷ்போர்டு மேலோட்டம்",
+    "totalValuation": "மொத்த சரக்கு மதிப்பு",
+    "activeSkus": "செயலில் உள்ள பொருட்கள்",
+    "lowStockAlerts": "குறைந்த இருப்பு எச்சரிக்கைகள்",
+    "itemsRequireAction": "நடவடிக்கை தேவைப்படும் பொருட்கள்",
+    "revenueGrowth": "வருவாய் வளர்ச்சி",
+    "aiForecastAlert": "AI கணிப்பு எச்சரிக்கை",
+    "recentSales": "சமீபத்திய விற்பனை",
+    "quickActions": "விரைவு நடவடிக்கைகள்",
+    "aiInsightsTitle": "AI இயங்கும் நுண்ணறிவுகள் & பரிந்துரைகள்",
+    "demandForecastTitle": "30 நாள் தானியங்கி தேவை கணிப்பு",
+    "topProductsTitle": "சிறந்த தயாரிப்புகள்"
+  },
+  "buttons": {
+    "add": "சேர்",
+    "edit": "திருத்து",
+    "delete": "நீக்கு",
+    "save": "சேமிக்கவும்",
+    "cancel": "ரத்து செய்",
+    "search": "தேடு...",
+    "filter": "வடிகட்டு",
+    "export": "PDF ஏற்றுமதி",
+    "refresh": "புதுப்பி"
+  },
+  "common": {
+    "language": "மொழி",
+    "selectLanguage": "மொழியைத் தேர்ந்தெடுக்கவும்",
+    "status": "நிலை",
+    "actions": "நடவடிக்கைகள்",
+    "price": "விலை",
+    "quantity": "அளவு",
+    "category": "பிரிவு",
+    "supplier": "வழங்குனர்",
+    "date": "தேதி",
+    "total": "மொத்தம்",
+    "loading": "ஏற்றப்படுகிறது..."
+  }
+}

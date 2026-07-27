@@ -1,0 +1,197 @@
+2026-07-17 11:24:09.247 IST [30776] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-17 11:24:09.247 IST [30776] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-17 11:24:09.247 IST [30776] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-17 11:24:09.248 IST [30776] FATAL:  could not create lock file "/var/run/postgresql/.s.PGSQL.5432.lock": Permission denied
+2026-07-17 11:24:09.249 IST [30776] LOG:  database system is shut down
+2026-07-17 11:24:32.090 IST [30981] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-17 11:24:32.090 IST [30981] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-17 11:24:32.090 IST [30981] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-17 11:24:32.091 IST [30981] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-07-17 11:24:32.093 IST [30987] LOG:  database system was shut down at 2026-07-17 11:24:02 IST
+2026-07-17 11:24:32.097 IST [30981] LOG:  database system is ready to accept connections
+2026-07-17 11:29:32.189 IST [30985] LOG:  checkpoint starting: time
+2026-07-17 11:31:18.429 IST [30985] LOG:  checkpoint complete: wrote 1059 buffers (6.5%), wrote 3 SLRU buffers; 1 WAL file(s) added, 0 removed, 0 recycled; write=106.188 s, sync=0.032 s, total=106.240 s; sync files=368, longest=0.002 s, average=0.001 s; distance=5015 kB, estimate=5015 kB; lsn=0/1C49E20, redo lsn=0/1C49D90
+2026-07-17 11:34:32.530 IST [30985] LOG:  checkpoint starting: time
+2026-07-17 11:34:34.851 IST [30985] LOG:  checkpoint complete: wrote 23 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=2.314 s, sync=0.003 s, total=2.322 s; sync files=21, longest=0.001 s, average=0.001 s; distance=40 kB, estimate=4517 kB; lsn=0/1C54038, redo lsn=0/1C53FC8
+2026-07-17 11:39:32.901 IST [30985] LOG:  checkpoint starting: time
+2026-07-17 11:39:33.914 IST [30985] LOG:  checkpoint complete: wrote 10 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.005 s, sync=0.004 s, total=1.013 s; sync files=11, longest=0.003 s, average=0.001 s; distance=5 kB, estimate=4066 kB; lsn=0/1C55600, redo lsn=0/1C555A8
+2026-07-17 11:44:33.013 IST [30985] LOG:  checkpoint starting: time
+2026-07-17 11:44:34.626 IST [30985] LOG:  checkpoint complete: wrote 16 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.607 s, sync=0.002 s, total=1.614 s; sync files=17, longest=0.001 s, average=0.001 s; distance=8 kB, estimate=3660 kB; lsn=0/1C57780, redo lsn=0/1C57728
+2026-07-17 11:49:33.651 IST [30985] LOG:  checkpoint starting: time
+2026-07-17 11:49:33.860 IST [30985] LOG:  checkpoint complete: wrote 2 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.202 s, sync=0.003 s, total=0.210 s; sync files=3, longest=0.003 s, average=0.001 s; distance=1 kB, estimate=3294 kB; lsn=0/1C57D58, redo lsn=0/1C57D00
+2026-07-17 11:54:33.957 IST [30985] LOG:  checkpoint starting: time
+2026-07-17 11:54:34.072 IST [30985] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.101 s, sync=0.002 s, total=0.115 s; sync files=1, longest=0.002 s, average=0.002 s; distance=1 kB, estimate=2965 kB; lsn=0/1C582B8, redo lsn=0/1C58260
+2026-07-17 11:58:58.879 IST [30981] LOG:  received smart shutdown request
+2026-07-17 11:58:58.879 IST [40566] FATAL:  terminating connection due to administrator command
+2026-07-17 11:58:58.879 IST [41354] FATAL:  terminating connection due to administrator command
+2026-07-17 11:58:58.879 IST [41355] FATAL:  terminating connection due to administrator command
+2026-07-17 11:58:58.882 IST [30981] LOG:  background worker "logical replication launcher" (PID 30990) exited with exit code 1
+2026-07-17 11:58:58.887 IST [30985] LOG:  shutting down
+2026-07-17 11:58:58.888 IST [30985] LOG:  checkpoint starting: shutdown immediate
+2026-07-17 11:58:58.890 IST [30985] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.004 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=2669 kB; lsn=0/1C58368, redo lsn=0/1C58368
+2026-07-17 11:58:58.911 IST [30981] LOG:  database system is shut down
+2026-07-17 12:05:21.919 IST [12412] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-17 12:05:21.920 IST [12412] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-17 12:05:21.920 IST [12412] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-17 12:05:21.920 IST [12412] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow (2)/backend/db_data/.s.PGSQL.5432"
+2026-07-17 12:05:21.923 IST [12418] LOG:  database system was shut down at 2026-07-17 11:58:58 IST
+2026-07-17 12:05:21.927 IST [12412] LOG:  database system is ready to accept connections
+2026-07-17 12:10:22.021 IST [12416] LOG:  checkpoint starting: time
+2026-07-17 12:10:22.031 IST [12416] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.011 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1C58470, redo lsn=0/1C58418
+2026-07-17 12:12:27.418 IST [12412] LOG:  received smart shutdown request
+2026-07-17 12:12:27.420 IST [12412] LOG:  background worker "logical replication launcher" (PID 12421) exited with exit code 1
+2026-07-17 12:12:27.422 IST [12416] LOG:  shutting down
+2026-07-17 12:12:27.423 IST [12416] LOG:  checkpoint starting: shutdown immediate
+2026-07-17 12:12:27.425 IST [12416] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.004 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/1C58520, redo lsn=0/1C58520
+2026-07-17 12:12:27.431 IST [12412] LOG:  database system is shut down
+2026-07-17 12:22:31.514 IST [23552] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-17 12:22:31.514 IST [23552] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-17 12:22:31.514 IST [23552] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-17 12:22:31.515 IST [23552] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow (2)/backend/db_data/.s.PGSQL.5432"
+2026-07-17 12:22:31.518 IST [23558] LOG:  database system was shut down at 2026-07-17 12:12:27 IST
+2026-07-17 12:22:31.522 IST [23552] LOG:  database system is ready to accept connections
+2026-07-17 12:27:31.616 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 12:27:31.624 IST [23556] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.008 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1C58628, redo lsn=0/1C585D0
+2026-07-17 12:32:31.720 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 12:32:33.233 IST [23556] LOG:  checkpoint complete: wrote 15 buffers (0.1%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.507 s, sync=0.002 s, total=1.513 s; sync files=9, longest=0.001 s, average=0.001 s; distance=85 kB, estimate=85 kB; lsn=0/1C6DC98, redo lsn=0/1C6DC40
+2026-07-17 12:37:31.326 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 12:37:34.451 IST [23556] LOG:  checkpoint complete: wrote 31 buffers (0.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=3.118 s, sync=0.003 s, total=3.125 s; sync files=28, longest=0.001 s, average=0.001 s; distance=130 kB, estimate=130 kB; lsn=0/1C8E720, redo lsn=0/1C8E690
+2026-07-17 12:42:31.548 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 12:42:32.860 IST [23556] LOG:  checkpoint complete: wrote 13 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.305 s, sync=0.004 s, total=1.313 s; sync files=13, longest=0.003 s, average=0.001 s; distance=55 kB, estimate=123 kB; lsn=0/1C9C690, redo lsn=0/1C9C638
+2026-07-17 12:47:31.868 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 12:47:32.878 IST [23556] LOG:  checkpoint complete: wrote 10 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.003 s, sync=0.003 s, total=1.010 s; sync files=9, longest=0.003 s, average=0.001 s; distance=41 kB, estimate=114 kB; lsn=0/1CA6C50, redo lsn=0/1CA6BF8
+2026-07-17 12:52:31.976 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 12:52:32.088 IST [23556] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.101 s, sync=0.002 s, total=0.112 s; sync files=1, longest=0.002 s, average=0.002 s; distance=7 kB, estimate=104 kB; lsn=0/1CA89E0, redo lsn=0/1CA8988
+2026-07-17 13:02:31.288 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 13:02:33.202 IST [23556] LOG:  checkpoint complete: wrote 19 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.907 s, sync=0.004 s, total=1.914 s; sync files=25, longest=0.001 s, average=0.001 s; distance=90 kB, estimate=102 kB; lsn=0/1CBF510, redo lsn=0/1CBF480
+2026-07-17 14:00:36.305 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 14:00:38.124 IST [23556] LOG:  checkpoint complete: wrote 18 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.810 s, sync=0.003 s, total=1.820 s; sync files=19, longest=0.001 s, average=0.001 s; distance=16 kB, estimate=94 kB; lsn=0/1CC3708, redo lsn=0/1CC36B0
+2026-07-17 14:05:36.224 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 14:05:36.331 IST [23556] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.101 s, sync=0.002 s, total=0.108 s; sync files=1, longest=0.002 s, average=0.002 s; distance=1 kB, estimate=84 kB; lsn=0/1CC3CD8, redo lsn=0/1CC3C80
+2026-07-17 14:10:36.382 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 14:10:36.495 IST [23556] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.002 s, total=0.114 s; sync files=2, longest=0.002 s, average=0.001 s; distance=1 kB, estimate=76 kB; lsn=0/1CC40F8, redo lsn=0/1CC40A0
+2026-07-17 14:25:36.780 IST [23556] LOG:  checkpoint starting: time
+2026-07-17 14:25:38.796 IST [23556] LOG:  checkpoint complete: wrote 20 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=2.008 s, sync=0.004 s, total=2.016 s; sync files=21, longest=0.003 s, average=0.001 s; distance=17 kB, estimate=70 kB; lsn=0/1CC8618, redo lsn=0/1CC85C0
+2026-07-17 14:28:11.367 IST [23552] LOG:  received smart shutdown request
+2026-07-17 14:28:11.367 IST [53522] FATAL:  terminating connection due to administrator command
+2026-07-17 14:28:11.367 IST [53523] FATAL:  terminating connection due to administrator command
+2026-07-17 14:28:11.367 IST [51046] FATAL:  terminating connection due to administrator command
+2026-07-17 14:28:11.367 IST [53525] FATAL:  terminating connection due to administrator command
+2026-07-17 14:28:11.367 IST [53527] FATAL:  terminating connection due to administrator command
+2026-07-17 14:28:11.368 IST [23552] LOG:  background worker "logical replication launcher" (PID 23561) exited with exit code 1
+2026-07-17 14:28:11.375 IST [23556] LOG:  shutting down
+2026-07-17 14:28:11.375 IST [23556] LOG:  checkpoint starting: shutdown immediate
+2026-07-17 14:28:11.378 IST [23556] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.004 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=63 kB; lsn=0/1CC86C8, redo lsn=0/1CC86C8
+2026-07-17 14:28:11.386 IST [23552] LOG:  database system is shut down
+2026-07-17 15:37:40.337 IST [75248] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-17 15:37:40.337 IST [75248] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-17 15:37:40.337 IST [75248] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-17 15:37:40.338 IST [75248] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow (2)/backend/db_data/.s.PGSQL.5432"
+2026-07-17 15:37:40.341 IST [75254] LOG:  database system was shut down at 2026-07-17 14:28:11 IST
+2026-07-17 15:37:40.345 IST [75248] LOG:  database system is ready to accept connections
+2026-07-17 15:38:19.175 IST [75702] FATAL:  lock file "postmaster.pid" already exists
+2026-07-17 15:38:19.175 IST [75702] HINT:  Is another postmaster (PID 75248) running in data directory "/home/kbali/Downloads/smartflow (2)/backend/db_data"?
+2026-07-17 15:39:46.302 IST [76689] FATAL:  lock file "postmaster.pid" already exists
+2026-07-17 15:39:46.302 IST [76689] HINT:  Is another postmaster (PID 75248) running in data directory "/home/kbali/Downloads/smartflow (2)/backend/db_data"?
+2026-07-17 15:40:04.550 IST [76919] FATAL:  lock file "postmaster.pid" already exists
+2026-07-17 15:40:04.550 IST [76919] HINT:  Is another postmaster (PID 75248) running in data directory "/home/kbali/Downloads/smartflow (2)/backend/db_data"?
+2026-07-17 15:42:40.440 IST [75252] LOG:  checkpoint starting: time
+2026-07-17 15:42:40.446 IST [75252] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.007 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CC87D0, redo lsn=0/1CC8778
+2026-07-17 16:26:34.054 IST [75252] LOG:  checkpoint starting: time
+2026-07-17 16:26:34.164 IST [75252] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.002 s, total=0.110 s; sync files=1, longest=0.002 s, average=0.002 s; distance=1 kB, estimate=1 kB; lsn=0/1CC8F38, redo lsn=0/1CC8EE0
+2026-07-17 16:41:34.332 IST [75252] LOG:  checkpoint starting: time
+2026-07-17 16:41:34.440 IST [75252] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.002 s, total=0.109 s; sync files=2, longest=0.002 s, average=0.001 s; distance=3 kB, estimate=3 kB; lsn=0/1CC9BC8, redo lsn=0/1CC9B70
+2026-07-17 16:43:41.411 IST [126236] FATAL:  lock file "postmaster.pid" already exists
+2026-07-17 16:43:41.411 IST [126236] HINT:  Is another postmaster (PID 75248) running in data directory "/home/kbali/Downloads/smartflow/backend/db_data"?
+2026-07-17 22:47:36.103 IST [75248] LOG:  received smart shutdown request
+2026-07-17 22:47:36.103 IST [104842] FATAL:  terminating connection due to administrator command
+2026-07-17 22:47:36.103 IST [104948] FATAL:  terminating connection due to administrator command
+2026-07-17 22:47:36.103 IST [104950] FATAL:  terminating connection due to administrator command
+2026-07-17 22:47:36.106 IST [104955] FATAL:  terminating connection due to administrator command
+2026-07-17 22:47:36.106 IST [104958] FATAL:  terminating connection due to administrator command
+2026-07-17 22:47:36.112 IST [75248] LOG:  background worker "logical replication launcher" (PID 75257) exited with exit code 1
+2026-07-17 22:47:36.112 IST [75252] LOG:  shutting down
+2026-07-17 22:47:36.112 IST [75252] PANIC:  could not open file "/home/kbali/Downloads/smartflow (2)/backend/db_data/global/pg_control": No such file or directory
+2026-07-17 22:47:36.113 IST [75248] LOG:  checkpointer process (PID 75252) was terminated by signal 6: Aborted
+2026-07-17 22:47:36.113 IST [75248] LOG:  terminating any other active server processes
+2026-07-17 22:47:36.113 IST [75248] LOG:  abnormal database system shutdown
+2026-07-17 22:47:36.115 IST [75248] LOG:  database system is shut down
+2026-07-18 10:00:55.595 IST [33324] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-18 10:00:55.596 IST [33324] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-18 10:00:55.596 IST [33324] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-18 10:00:55.597 IST [33324] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow/backend/db_data/.s.PGSQL.5432"
+2026-07-18 10:00:55.600 IST [33330] LOG:  database system was interrupted; last known up at 2026-07-17 16:41:34 IST
+2026-07-18 10:00:55.692 IST [33330] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-07-18 10:00:55.695 IST [33330] LOG:  redo starts at 0/1CC9B70
+2026-07-18 10:00:55.695 IST [33330] LOG:  invalid record length at 0/1CC9C78: expected at least 24, got 0
+2026-07-18 10:00:55.695 IST [33330] LOG:  redo done at 0/1CC9C40 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-07-18 10:00:55.698 IST [33328] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-07-18 10:00:55.701 IST [33328] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.004 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CC9C78, redo lsn=0/1CC9C78
+2026-07-18 10:00:55.704 IST [33324] LOG:  database system is ready to accept connections
+2026-07-18 10:10:55.770 IST [33328] LOG:  checkpoint starting: time
+2026-07-18 10:10:55.877 IST [33328] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.101 s, sync=0.002 s, total=0.107 s; sync files=2, longest=0.002 s, average=0.001 s; distance=1 kB, estimate=1 kB; lsn=0/1CCA250, redo lsn=0/1CCA1F8
+2026-07-18 10:20:55.985 IST [33328] LOG:  checkpoint starting: time
+2026-07-18 10:20:57.901 IST [33328] LOG:  checkpoint complete: wrote 19 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.908 s, sync=0.005 s, total=1.916 s; sync files=20, longest=0.003 s, average=0.001 s; distance=12 kB, estimate=12 kB; lsn=0/1CCD548, redo lsn=0/1CCD4F0
+2026-07-18 10:25:55.998 IST [33328] LOG:  checkpoint starting: time
+2026-07-18 10:25:56.306 IST [33328] LOG:  checkpoint complete: wrote 3 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.003 s, total=0.309 s; sync files=4, longest=0.002 s, average=0.001 s; distance=6 kB, estimate=12 kB; lsn=0/1CCF0B8, redo lsn=0/1CCF060
+2026-07-18 10:30:55.406 IST [33328] LOG:  checkpoint starting: time
+2026-07-18 10:30:56.318 IST [33328] LOG:  checkpoint complete: wrote 9 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.903 s, sync=0.004 s, total=0.913 s; sync files=10, longest=0.003 s, average=0.001 s; distance=10 kB, estimate=12 kB; lsn=0/1CD1B98, redo lsn=0/1CD1B08
+2026-07-18 10:38:55.789 IST [33324] LOG:  received smart shutdown request
+2026-07-18 10:38:55.789 IST [34428] FATAL:  terminating connection due to administrator command
+2026-07-18 10:38:55.789 IST [34205] FATAL:  terminating connection due to administrator command
+2026-07-18 10:38:55.789 IST [34431] FATAL:  terminating connection due to administrator command
+2026-07-18 10:38:55.789 IST [42232] FATAL:  terminating connection due to administrator command
+2026-07-18 10:38:55.790 IST [50057] FATAL:  terminating connection due to administrator command
+2026-07-18 10:38:55.792 IST [33324] LOG:  background worker "logical replication launcher" (PID 33333) exited with exit code 1
+2026-07-18 10:38:55.798 IST [33328] LOG:  shutting down
+2026-07-18 10:38:55.798 IST [33328] LOG:  checkpoint starting: shutdown immediate
+2026-07-18 10:38:55.800 IST [33328] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.003 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=10 kB; lsn=0/1CD1C48, redo lsn=0/1CD1C48
+2026-07-18 10:38:55.807 IST [33324] LOG:  database system is shut down
+2026-07-20 10:53:36.861 IST [30340] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-20 10:53:36.861 IST [30340] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-20 10:53:36.861 IST [30340] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-20 10:53:36.862 IST [30340] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow/backend/db_data/.s.PGSQL.5432"
+2026-07-20 10:53:36.865 IST [30346] LOG:  database system was shut down at 2026-07-18 10:38:55 IST
+2026-07-20 10:53:36.869 IST [30340] LOG:  database system is ready to accept connections
+2026-07-20 10:58:36.963 IST [30344] LOG:  checkpoint starting: time
+2026-07-20 10:58:36.968 IST [30344] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.006 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CD1D50, redo lsn=0/1CD1CF8
+2026-07-20 11:26:51.783 IST [44124] FATAL:  lock file "postmaster.pid" already exists
+2026-07-20 11:26:51.783 IST [44124] HINT:  Is another postmaster (PID 30340) running in data directory "/home/kbali/Downloads/smartflow/backend/db_data"?
+2026-07-20 11:27:02.746 IST [30340] LOG:  received fast shutdown request
+2026-07-20 11:27:02.752 IST [30340] LOG:  aborting any active transactions
+2026-07-20 11:27:02.754 IST [30340] LOG:  background worker "logical replication launcher" (PID 30349) exited with exit code 1
+2026-07-20 11:27:02.754 IST [30344] LOG:  shutting down
+2026-07-20 11:27:02.756 IST [30344] LOG:  checkpoint starting: shutdown immediate
+2026-07-20 11:27:02.760 IST [30344] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.006 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/1CD1E00, redo lsn=0/1CD1E00
+2026-07-20 11:27:02.767 IST [30340] LOG:  database system is shut down
+2026-07-20 11:27:06.901 IST [44321] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-20 11:27:06.901 IST [44321] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-20 11:27:06.901 IST [44321] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-20 11:27:06.902 IST [44321] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow/backend/db_data/.s.PGSQL.5432"
+2026-07-20 11:27:06.905 IST [44327] LOG:  database system was shut down at 2026-07-20 11:27:02 IST
+2026-07-20 11:27:06.909 IST [44321] LOG:  database system is ready to accept connections
+2026-07-20 11:28:59.539 IST [50193] FATAL:  lock file "postmaster.pid" already exists
+2026-07-20 11:28:59.539 IST [50193] HINT:  Is another postmaster (PID 44321) running in data directory "/home/kbali/Downloads/smartflow/backend/db_data"?
+2026-07-20 11:29:06.804 IST [44321] LOG:  received fast shutdown request
+2026-07-20 11:29:06.807 IST [44321] LOG:  aborting any active transactions
+2026-07-20 11:29:06.808 IST [44321] LOG:  background worker "logical replication launcher" (PID 44330) exited with exit code 1
+2026-07-20 11:29:06.808 IST [44325] LOG:  shutting down
+2026-07-20 11:29:06.809 IST [44325] LOG:  checkpoint starting: shutdown immediate
+2026-07-20 11:29:06.811 IST [44325] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.003 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CD1EB0, redo lsn=0/1CD1EB0
+2026-07-20 11:29:06.816 IST [44321] LOG:  database system is shut down
+2026-07-20 11:29:09.690 IST [50341] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1+b1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 15.2.0-14) 15.2.0, 64-bit
+2026-07-20 11:29:09.691 IST [50341] LOG:  listening on IPv6 address "::1", port 5432
+2026-07-20 11:29:09.691 IST [50341] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-07-20 11:29:09.692 IST [50341] LOG:  listening on Unix socket "/home/kbali/Downloads/smartflow/backend/db_data/.s.PGSQL.5432"
+2026-07-20 11:29:09.695 IST [50347] LOG:  database system was shut down at 2026-07-20 11:29:06 IST
+2026-07-20 11:29:09.697 IST [50341] LOG:  database system is ready to accept connections
+2026-07-20 11:29:17.648 IST [50479] FATAL:  lock file "postmaster.pid" already exists
+2026-07-20 11:29:17.648 IST [50479] HINT:  Is another postmaster (PID 50341) running in data directory "/home/kbali/Downloads/smartflow/backend/db_data"?
+2026-07-20 11:34:09.791 IST [50345] LOG:  checkpoint starting: time
+2026-07-20 11:34:09.797 IST [50345] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.006 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CD1FB8, redo lsn=0/1CD1F60
+2026-07-20 12:13:55.635 IST [50341] LOG:  received smart shutdown request
+2026-07-20 12:13:55.637 IST [50341] LOG:  background worker "logical replication launcher" (PID 50350) exited with exit code 1
+2026-07-20 12:13:55.637 IST [50345] LOG:  shutting down
+2026-07-20 12:13:55.637 IST [50345] LOG:  checkpoint starting: shutdown immediate
+2026-07-20 12:13:55.641 IST [50345] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.004 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/1CD2080, redo lsn=0/1CD2080
+2026-07-20 12:13:55.646 IST [50341] LOG:  database system is shut down

@@ -1,0 +1,77 @@
+{
+  "app": {
+    "title": "SmartFlow",
+    "tagline": "AI Powered Inventory Management System",
+    "version": "Version 1.0.0 • © 2026 SmartFlow"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "inventory": "Inventory",
+    "categories": "Categories",
+    "suppliers": "Suppliers",
+    "billing": "Billing",
+    "sales": "Sales History",
+    "reports": "Reports",
+    "settings": "Settings",
+    "logout": "Sign Out"
+  },
+  "auth": {
+    "loginTitle": "Sign In to SmartFlow",
+    "registerTitle": "Create Your Account",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "name@company.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signInButton": "Sign In to Dashboard",
+    "googleSignIn": "Sign in with Google",
+    "signUpPrompt": "Don't have an account?",
+    "signUpLink": "Sign Up",
+    "signInPrompt": "Already have an account?",
+    "signInLink": "Sign In",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "John Doe",
+    "confirmPasswordLabel": "Confirm Password",
+    "createAccountButton": "Create Account"
+  },
+  "dashboard": {
+    "overview": "Dashboard Overview",
+    "totalValuation": "Total Inventory Valuation",
+    "activeSkus": "Active SKUs",
+    "lowStockAlerts": "Low Stock Alerts",
+    "itemsRequireAction": "Items Require Action",
+    "revenueGrowth": "Revenue Growth",
+    "aiForecastAlert": "AI Forecast Alert",
+    "recentSales": "Recent Sales",
+    "quickActions": "Quick Actions",
+    "aiInsightsTitle": "AI Powered Insights & Recommendations",
+    "demandForecastTitle": "30-Day Automated Demand Forecast",
+    "topProductsTitle": "Top Performing Products"
+  },
+  "buttons": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "search": "Search...",
+    "filter": "Filter",
+    "export": "Export PDF",
+    "refresh": "Refresh"
+  },
+  "common": {
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "status": "Status",
+    "actions": "Actions",
+    "price": "Price",
+    "quantity": "Quantity",
+    "category": "Category",
+    "supplier": "Supplier",
+    "date": "Date",
+    "total": "Total",
+    "loading": "Loading..."
+  }
+}

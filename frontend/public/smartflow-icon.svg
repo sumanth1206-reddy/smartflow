@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="sfNewCubeFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+
+    <linearGradient id="sfNewCubeSide" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#1e40af" />
+    </linearGradient>
+
+    <linearGradient id="sfNewPulseLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(10, 10)">
+    <!-- 3D Interconnected Warehouse Intelligence Cube -->
+    <polygon points="50,8 88,28 50,48 12,28" fill="url(#sfNewCubeFront)" />
+    <polygon points="12,28 50,48 50,92 12,72" fill="url(#sfNewPulseLine)" opacity="0.95" />
+    <polygon points="50,48 88,28 88,72 50,92" fill="url(#sfNewCubeSide)" />
+
+    <!-- AI Digital Flow Wave & Connected Node Stream -->
+    <path
+      d="M 10 68 C 10 32, 50 12, 90 32 C 102 42, 96 74, 76 80 C 48 88, 14 74, 24 98 C 32 112, 70 114, 90 92"
+      fill="none"
+      stroke="url(#sfNewPulseLine)"
+      stroke-width="7.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- Active AI Signal Vertices -->
+    <circle cx="50" cy="48" r="5" fill="#ffffff" stroke="#2563eb" stroke-width="3" />
+    <circle cx="88" cy="28" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="24" cy="98" r="4" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" />
+  </g>
+</svg>
