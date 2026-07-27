@@ -34,6 +34,40 @@ export const login = async (email, password) => {
 }
 
 
+export const loginGoogle = async (access_token) => {
+  try {
+    const response = await api.post('/auth/google', { access_token })
+    if (response.data && response.data.success) {
+      localStorage.setItem('smartflow_token', response.data.token)
+      if (response.data.refreshToken) {
+        localStorage.setItem('smartflow_refresh_token', response.data.refreshToken)
+      }
+      localStorage.setItem('smartflow_user', JSON.stringify(response.data.user))
+      return {
+        success: true,
+        user: response.data.user,
+        token: response.data.token
+      }
+    }
+    return {
+      success: false,
+      message: response.data.message || 'Google login failed'
+    }
+  } catch (error) {
+    let message = 'Google login failed'
+    if (!error.response) {
+      message = 'Cannot connect to backend server. Please verify the backend and database are running.'
+    } else if (error.response.data && error.response.data.error) {
+      message = error.response.data.error
+    }
+    return {
+      success: false,
+      message
+    }
+  }
+}
+
+
 export const register = async (userData) => {
   try {
     const response = await api.post('/auth/register', userData)

@@ -218,7 +218,7 @@ export default function Orders() {
       >
         {selectedOrder && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="grid-2-col">
               <div>
                 <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Supplier</strong>
                 <p style={{ margin: '4px 0 0', fontWeight: 'bold' }}>{selectedOrder.supplierName}</p>
@@ -228,7 +228,7 @@ export default function Orders() {
                 <p style={{ margin: '4px 0 0' }}>{new Date(selectedOrder.orderDate).toLocaleString()}</p>
               </div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="grid-2-col">
               <div>
                 <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Total Cost</strong>
                 <p style={{ margin: '4px 0 0', fontWeight: 'bold', color: 'var(--accent)' }}>{formatPrice(selectedOrder.totalAmount)}</p>

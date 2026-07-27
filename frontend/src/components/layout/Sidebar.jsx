@@ -29,7 +29,6 @@ export default function Sidebar({ open, setOpen }) {
     <>
       <aside
         className={`sidebar ${open ? 'open' : ''}`}
-        onMouseLeave={() => setOpen(false)}
       >
         <div className="brand-block" style={{ padding: '20px 16px', borderBottom: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-start' }}>
           <SmartFlowLogo fontSize="1.35rem" />

@@ -80,6 +80,58 @@ def login():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@auth_bp.route('/google', methods=['POST'])
+def google_login():
+    import urllib.request
+    import json
+    import uuid
+    try:
+        data = request.get_json()
+        access_token = data.get('access_token')
+        if not access_token:
+            return jsonify({"error": "Missing access_token"}), 400
+            
+        # Verify the access token with Google's API
+        userinfo_url = f"https://www.googleapis.com/oauth2/v3/userinfo?access_token={access_token}"
+        try:
+            req = urllib.request.Request(userinfo_url)
+            with urllib.request.urlopen(req) as response:
+                google_user = json.loads(response.read().decode('utf-8'))
+        except Exception as e:
+            return jsonify({"error": f"Invalid Google token: {str(e)}"}), 401
+            
+        email = google_user.get('email')
+        name = google_user.get('name')
+        if not email:
+            return jsonify({"error": "Google account does not have an email address"}), 400
+            
+        # Check if user already exists
+        user = User.query.filter_by(email=email).first()
+        if not user:
+            # Create user if it doesn't exist
+            user = User(
+                email=email,
+                name=name or email.split('@')[0],
+                role='Cashier'  # Default role for new Google signups
+            )
+            # Set a random password hash since password is required
+            random_password = str(uuid.uuid4())
+            user.set_password(random_password)
+            db.session.add(user)
+            db.session.commit()
+            
+        access_token_jwt = create_access_token(identity=str(user.id))
+        refresh_token_jwt = create_refresh_token(identity=str(user.id))
+        
+        return jsonify({
+            "success": True,
+            "token": access_token_jwt,
+            "refreshToken": refresh_token_jwt,
+            "user": user.to_dict()
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @auth_bp.route('/profile', methods=['PUT'])
 @jwt_required()
 def update_profile():

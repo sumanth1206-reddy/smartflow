@@ -450,7 +450,7 @@ export default function Inventory() {
             <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Product Name</strong>
             <p style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: '4px 0 0' }}>{selectedItem?.product}</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="grid-2-col">
             <div>
               <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>SKU</strong>
               <p style={{ margin: '4px 0 0', fontWeight: '500' }}>{selectedItem?.sku || 'N/A'}</p>
@@ -460,7 +460,7 @@ export default function Inventory() {
               <p style={{ margin: '4px 0 0', fontWeight: '500' }}>{selectedItem?.category || 'N/A'}</p>
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="grid-2-col">
             <div>
               <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Current Stock</strong>
               <p style={{ margin: '4px 0 0', fontWeight: 'bold' }}>{selectedItem?.currentStock} units</p>
@@ -470,7 +470,7 @@ export default function Inventory() {
               <p style={{ margin: '4px 0 0', fontWeight: '500' }}>{selectedItem?.minimumStock} units</p>
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="grid-2-col">
             <div>
               <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Storage Zone</strong>
               <p style={{ margin: '4px 0 0', fontWeight: '500' }}>{selectedItem?.location}</p>
@@ -484,7 +484,7 @@ export default function Inventory() {
               </div>
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="grid-2-col">
             <div>
               <strong style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Barcode</strong>
               <p style={{ margin: '4px 0 0', fontWeight: '500' }}>{selectedItem?.barcode || 'N/A'}</p>

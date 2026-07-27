@@ -63,10 +63,10 @@ export default function IntroCanvas({ onComplete, children }) {
       }
     })
 
-    // Phase 1: Thin Ring appear and rotate once gracefully (0.2s - 1.2s)
+    // Phase 1: Thin Ring appear and rotate once gracefully (0.05s - 0.35s)
     tl.to({}, {
-      duration: 1.0,
-      delay: 0.2,
+      duration: 0.3,
+      delay: 0.05,
       onUpdate: function () {
         setRingProgress(this.progress())
       },
@@ -74,7 +74,7 @@ export default function IntroCanvas({ onComplete, children }) {
     })
 
     // Helper to animate letter state with clear visual presence
-    const animateLetter = (char, duration, ease, delayOverlap = 0.35) => {
+    const animateLetter = (char, duration, ease, delayOverlap = 0.15) => {
       const start = initialLetterStates[char]
       const target = targetLetterStates[char]
       const cur = { ...start }
@@ -94,7 +94,7 @@ export default function IntroCanvas({ onComplete, children }) {
         onComplete: () => {
           gsap.to(cur, {
             glow: 0,
-            duration: 0.4,
+            duration: 0.15,
             onUpdate: () => {
               statesRef.current = {
                 ...statesRef.current,
@@ -109,27 +109,27 @@ export default function IntroCanvas({ onComplete, children }) {
 
     // Phase 2: Sequential letter arrivals with clear individual movements
     // S drops from above
-    animateLetter('S', 0.65, 'bounce.out', 0)
+    animateLetter('S', 0.3, 'bounce.out', 0)
     // M slides from right
-    animateLetter('M', 0.6, 'power3.out', 0.35)
+    animateLetter('M', 0.25, 'power3.out', 0.15)
     // A rotates into place
-    animateLetter('A', 0.65, 'back.out(1.5)', 0.35)
+    animateLetter('A', 0.3, 'back.out(1.5)', 0.15)
     // R slides from left
-    animateLetter('R', 0.6, 'power2.out', 0.35)
+    animateLetter('R', 0.25, 'power2.out', 0.15)
     // T drops vertically
-    animateLetter('T', 0.6, 'bounce.out', 0.35)
+    animateLetter('T', 0.25, 'bounce.out', 0.15)
     // F rotates gently
-    animateLetter('F', 0.55, 'power1.out', 0.3)
+    animateLetter('F', 0.25, 'power1.out', 0.15)
     // L rises from below
-    animateLetter('L', 0.6, 'power3.out', 0.35)
+    animateLetter('L', 0.25, 'power3.out', 0.15)
     // O rolls into place
-    animateLetter('O', 0.65, 'power2.inOut', 0.35)
+    animateLetter('O', 0.3, 'power2.inOut', 0.15)
     // W lands last with smooth elastic easing
-    animateLetter('W', 0.7, 'elastic.out(1, 0.6)', 0.35)
+    animateLetter('W', 0.35, 'elastic.out(1, 0.6)', 0.15)
 
-    // Phase 3: Blue Light Sweep moving smoothly across S to W (1.0s duration)
+    // Phase 3: Blue Light Sweep moving smoothly across S to W (0.3s duration)
     tl.to({}, {
-      duration: 1.0,
+      duration: 0.3,
       onStart: () => setShowSweep(true),
       onUpdate: function () {
         setLightSweepProgress(this.progress())
@@ -137,18 +137,18 @@ export default function IntroCanvas({ onComplete, children }) {
       onComplete: () => setShowSweep(false)
     })
 
-    // Phase 4: Subtitle fade-in and clear display (0.8s)
+    // Phase 4: Subtitle fade-in and clear display (0.25s)
     tl.to({}, {
-      duration: 0.8,
+      duration: 0.25,
       onStart: () => setShowSubtitle(true)
     })
 
     // Pause briefly so the fully assembled logo & subtitle can be appreciated
-    tl.to({}, { duration: 0.6 })
+    tl.to({}, { duration: 0.1 })
 
     // Phase 5: Scale down & dock into topbar smoothly while login card fades in
     tl.to({}, {
-      duration: 0.8,
+      duration: 0.4,
       onStart: () => setIsDocked(true)
     })
   }
@@ -176,7 +176,7 @@ export default function IntroCanvas({ onComplete, children }) {
           y: 0,
           opacity: 1
         }}
-        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         style={{
           position: 'fixed',
           top: 0,

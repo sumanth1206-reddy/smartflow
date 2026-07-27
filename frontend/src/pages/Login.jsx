@@ -122,8 +122,44 @@ export default function Login({ darkMode, setDarkMode }) {
     }
   }
 
-  const handleGoogleSignIn = () => {
-    toast.error("Google Sign-In is currently in preview mode.");
+  const handleGoogleSignIn = async () => {
+    if (!window.google) {
+      toast.error("Google Identity Services script not loaded. Please check your internet connection.");
+      return;
+    }
+
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    if (!clientId) {
+      toast.error("VITE_GOOGLE_CLIENT_ID is not configured in your environment variables.");
+      return;
+    }
+
+    try {
+      const client = window.google.accounts.oauth2.initTokenClient({
+        client_id: clientId,
+        scope: "email profile",
+        callback: async (tokenResponse) => {
+          if (tokenResponse && tokenResponse.access_token) {
+            const result = await loginGoogle(tokenResponse.access_token);
+            if (result.success) {
+              toast.success("Welcome back to SmartFlow via Google!");
+              navigate("/");
+            } else {
+              toast.error(result.message || "Google Sign-In failed.");
+            }
+          } else {
+            toast.error("Google authentication was cancelled.");
+          }
+        },
+        error_callback: (err) => {
+          toast.error(`Google authentication error: ${err.message || err}`);
+        }
+      });
+      client.requestAccessToken();
+    } catch (error) {
+      console.error(error);
+      toast.error("Could not initialize Google Sign-In.");
+    }
   }
 
   return (
@@ -165,22 +201,13 @@ export default function Login({ darkMode, setDarkMode }) {
         </div>
 
         {/* 55% Left / 45% Right Split Container */}
-        <div
-          style={{
-            width: "100%",
-            maxWidth: "1280px",
-            display: "grid",
-            gridTemplateColumns: "55% 45%",
-            gap: "48px",
-            alignItems: "center"
-          }}
-        >
+        <div className="login-grid-wrapper">
           {/* LEFT SIDE (55%): Brand Showcase & Floating UI Previews */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{ display: "flex", flexDirection: "column", gap: "16px", paddingRight: "12px" }}
+            className="login-showcase-panel"
           >
             {/* Left Panel Header with Big Blue SMARTFLOW Logo */}
             <div style={{ marginBottom: "4px" }}>

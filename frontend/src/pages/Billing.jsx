@@ -525,7 +525,7 @@ export default function Billing() {
 
       <section className="billing-grid">
         <Card title="Customer Information" subtitle="Primary contact details" className="panel-card">
-          <div className="form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="grid-2-col">
             <Input label="Customer Name" placeholder="Walk-in Customer" value={customerName} onChange={(e) => setCustomerName(e.target.value)} />
             <Input label="Mobile Number" placeholder="(555) 010-2299" value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} />
             <Input label="Email Address" placeholder="customer@example.com" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} />

@@ -1901,6 +1901,45 @@ body.dark-theme .glassy-toast {
     opacity: 1;
     transform: translateY(0);
   }
+}/* Responsive Grid Helper */
+.grid-2-col {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 16px !important;
+}
+
+@media (max-width: 640px) {
+  .grid-2-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Login Page Responsive Classes */
+.login-grid-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 48px;
+  align-items: center;
+}
+
+.login-showcase-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 12px;
+}
+
+@media (max-width: 960px) {
+  .login-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .login-showcase-panel {
+    display: none !important;
+  }
 }
 
 @media print {

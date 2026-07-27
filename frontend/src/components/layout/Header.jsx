@@ -87,6 +87,30 @@ export default function Header({ darkMode, setDarkMode, sidebarOpen, setSidebarO
 
   const unreadCount = notifications.filter(n => !n.read).length
 
+  const toggleMenu = (e) => {
+    e.stopPropagation()
+    setMenuOpen(prev => !prev)
+    setNotificationsOpen(false)
+  }
+
+  const toggleNotifications = (e) => {
+    e.stopPropagation()
+    setNotificationsOpen(prev => !prev)
+    setMenuOpen(false)
+  }
+
+  useEffect(() => {
+    if (!menuOpen && !notificationsOpen) return
+
+    const handleOutsideClick = () => {
+      setMenuOpen(false)
+      setNotificationsOpen(false)
+    }
+
+    document.addEventListener('click', handleOutsideClick)
+    return () => document.removeEventListener('click', handleOutsideClick)
+  }, [menuOpen, notificationsOpen])
+
   function handleLogout() {
     logout()
     navigate('/login')
@@ -118,8 +142,10 @@ export default function Header({ darkMode, setDarkMode, sidebarOpen, setSidebarO
           type="button"
           className="sidebar-trigger"
           title="Open Menu"
-          onClick={() => setSidebarOpen(true)}
-          onMouseEnter={() => setSidebarOpen(true)}
+          onClick={(e) => {
+            e.stopPropagation()
+            setSidebarOpen(true)
+          }}
         >
           ☰
         </button>
@@ -140,16 +166,12 @@ export default function Header({ darkMode, setDarkMode, sidebarOpen, setSidebarO
         <button type="button" className="icon-btn" onClick={() => setDarkMode((value) => !value)}>
           {darkMode ? '☀️' : '🌙'}
         </button>
-        <div 
-          className="notification-container"
-          onMouseEnter={() => setNotificationsOpen(true)}
-          onMouseLeave={() => setNotificationsOpen(false)}
-        >
-          <button type="button" className="icon-btn notification-btn" onClick={() => setNotificationsOpen((value) => !value)}>
+        <div className="notification-container">
+          <button type="button" className="icon-btn notification-btn" onClick={toggleNotifications}>
             🔔{unreadCount > 0 && <span className="notification-count">{unreadCount}</span>}
           </button>
           {notificationsOpen ? (
-            <div className="notification-panel">
+            <div className="notification-panel" onClick={(e) => e.stopPropagation()}>
               <div className="notification-panel-header">
                 <h3>Recent Alerts</h3>
                 <button type="button" onClick={handleClearAll}>Clear all</button>
@@ -194,12 +216,8 @@ export default function Header({ darkMode, setDarkMode, sidebarOpen, setSidebarO
             </div>
           ) : null}
         </div>
-        <div 
-          className="user-menu"
-          onMouseEnter={() => setMenuOpen(true)}
-          onMouseLeave={() => setMenuOpen(false)}
-        >
-          <button type="button" className="user-chip" onClick={() => setMenuOpen((value) => !value)}>
+        <div className="user-menu">
+          <button type="button" className="user-chip" onClick={toggleMenu}>
             <span className="avatar">{user?.name ?.split(" ").map((word) => word[0]).join("").toUpperCase() || "S"}</span>
            <div className="user-info">
               <span className="user-name">
@@ -211,7 +229,7 @@ export default function Header({ darkMode, setDarkMode, sidebarOpen, setSidebarO
             </div>
           </button>
           {menuOpen ? (
-            <div className="user-menu-panel">
+            <div className="user-menu-panel" onClick={(e) => e.stopPropagation()}>
             <Link
               to="/profile"
               className="menu-link"
