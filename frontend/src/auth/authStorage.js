@@ -3,9 +3,12 @@ const TOKEN_KEY = "smartflow_token";
 const REFRESH_TOKEN_KEY = "smartflow_refresh_token";
 const REMEMBER_KEY = "smartflow_remember";
 
-export const saveAuth = (user, token, remember = false) => {
+export const saveAuth = (user, token, remember = false, refreshToken = null) => {
   localStorage.setItem(USER_KEY, JSON.stringify(user));
   localStorage.setItem(TOKEN_KEY, token);
+  if (refreshToken) {
+    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+  }
   localStorage.setItem(REMEMBER_KEY, remember);
 };
 

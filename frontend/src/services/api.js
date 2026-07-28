@@ -46,18 +46,21 @@ api.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config
-    
+
+    // Ignore 401 handling for demo/mock sessions
+    const currentToken = localStorage.getItem('smartflow_token')
+    if (currentToken === 'demo-mock-jwt-token') {
+      return Promise.reject(error)
+    }
+
     // Check if error status is 401 and request has not been retried yet
     if (error.response && error.response.status === 401 && !originalRequest._retry) {
-      // If the request itself was the refresh call, do not retry to prevent infinite loops
+      // If the request itself was the refresh call, do not retry
       const isRefreshCall = originalRequest.url && originalRequest.url.includes('/auth/refresh')
       if (isRefreshCall) {
         localStorage.removeItem('smartflow_token')
         localStorage.removeItem('smartflow_refresh_token')
         localStorage.removeItem('smartflow_user')
-        if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
-          window.location.href = '/login'
-        }
         return Promise.reject(error)
       }
 
@@ -94,17 +97,11 @@ api.interceptors.response.use(
           localStorage.removeItem('smartflow_token')
           localStorage.removeItem('smartflow_refresh_token')
           localStorage.removeItem('smartflow_user')
-          if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
-            window.location.href = '/login'
-          }
           return Promise.reject(refreshError)
         }
       } else {
         localStorage.removeItem('smartflow_token')
         localStorage.removeItem('smartflow_user')
-        if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
-          window.location.href = '/login'
-        }
       }
     }
     return Promise.reject(error)

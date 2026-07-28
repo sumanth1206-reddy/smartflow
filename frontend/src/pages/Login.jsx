@@ -125,7 +125,7 @@ export default function Login({ darkMode, setDarkMode, isRegisterPage = false })
         toast.success("Account created successfully!");
         if (regResult.isDemo) {
           setRegisterLoading(false);
-          window.location.href = "/";
+          navigate("/");
           return;
         }
         const loginResult = await login(email, password, remember);

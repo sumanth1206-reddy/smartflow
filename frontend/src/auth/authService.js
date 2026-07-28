@@ -20,7 +20,8 @@ export const login = async (email, password) => {
       return {
         success: true,
         user: response.data.user,
-        token: response.data.token
+        token: response.data.token,
+        refreshToken: response.data.refreshToken
       }
     }
     return {

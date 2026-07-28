@@ -26,9 +26,7 @@ export function AuthProvider({ children }) {
     if (response.success) {
       setUser(response.user);
 
-      if (remember) {
-        saveAuth(response.user, response.token, true);
-      }
+      saveAuth(response.user, response.token, remember, response.refreshToken);
 
       setLoading(false);
       return { success: true };
