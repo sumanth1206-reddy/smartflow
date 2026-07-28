@@ -22,7 +22,11 @@
     "react-hot-toast": "^2.6.0",
     "react-i18next": "^17.0.10",
     "react-router-dom": "^6.14.1",
-    "three": "^0.185.1"
+    "three": "^0.185.1",
+    "three-mesh-bvh": "^0.8.0"
+  },
+  "overrides": {
+    "three-mesh-bvh": "^0.8.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",

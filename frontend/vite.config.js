@@ -13,6 +13,23 @@ export default defineConfig({
     }
   },
   build: {
-    chunkSizeWarningLimit: 2000
+    chunkSizeWarningLimit: 3000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('@react-three')) {
+              return 'three-vendor'
+            }
+            if (id.includes('jspdf') || id.includes('html2canvas')) {
+              return 'pdf-vendor'
+            }
+            if (id.includes('framer-motion') || id.includes('gsap')) {
+              return 'animation-vendor'
+            }
+          }
+        }
+      }
+    }
   }
 })
