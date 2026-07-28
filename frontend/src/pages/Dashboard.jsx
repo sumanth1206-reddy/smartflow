@@ -564,6 +564,13 @@ export default function Dashboard() {
         setSummary(summaryData)
         setSettings(settingsData)
         setAiAnalytics(aiData)
+
+        if (isBackendDown) {
+          toast('Backend unconfigured or offline. Showing demo metrics. Set VITE_API_URL in Vercel to connect live database.', {
+            icon: 'ℹ️',
+            duration: 5000
+          })
+        }
       } catch (error) {
         console.error('Failed to load dashboard metrics', error)
       } finally {
