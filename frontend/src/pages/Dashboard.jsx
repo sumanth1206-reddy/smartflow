@@ -467,11 +467,97 @@ export default function Dashboard() {
           api.get('/ai/analytics')
         ])
 
-        const productsData = prodRes.status === 'fulfilled' && Array.isArray(prodRes.value?.data) ? prodRes.value.data : []
-        const salesData = salesRes.status === 'fulfilled' && Array.isArray(salesRes.value?.data) ? salesRes.value.data : []
-        const summaryData = summaryRes.status === 'fulfilled' && summaryRes.value?.data && typeof summaryRes.value.data === 'object' && !Array.isArray(summaryRes.value.data) ? summaryRes.value.data : null
+        const isBackendDown = prodRes.status === 'rejected' || salesRes.status === 'rejected' || summaryRes.status === 'rejected'
+
+        const fallbackProducts = [
+          { id: 1, name: 'Smart Flow Controller X', sku: 'SFC-001', quantity: 45, price: 299.99 },
+          { id: 2, name: 'Wireless Sensor Node', sku: 'WSN-102', quantity: 8, price: 89.50 },
+          { id: 3, name: 'Industrial Gateway Pro', sku: 'IGP-500', quantity: 0, price: 499.00 },
+          { id: 4, name: 'Pressure Valve Assembly', sku: 'PVA-020', quantity: 120, price: 145.00 },
+          { id: 5, name: 'Flow Meter Digital', sku: 'FMD-300', quantity: 5, price: 210.00 }
+        ]
+
+        const fallbackSales = [
+          { id: 'INV-1001', customer: 'Acme Corp', total: 1250, status: 'Paid' },
+          { id: 'INV-1002', customer: 'Global Tech', total: 890, status: 'Paid' },
+          { id: 'INV-1003', customer: 'Apex Industries', total: 450, status: 'Pending' }
+        ]
+
+        const fallbackSummary = {
+          totalProducts: 48,
+          totalCategories: 6,
+          totalSuppliers: 12,
+          todaySalesRevenue: 4520,
+          todaySalesCount: 14,
+          inventoryValue: 128500,
+          lowStockCount: 4,
+          expiredCount: 1,
+          totalRevenue: 248900,
+          totalProfit: 84200,
+          monthlySalesRevenue: 42100,
+          monthlySalesCount: 128,
+          recentActivities: [
+            { id: 1, title: 'Stock Restocked', detail: 'Pressure Valve Assembly +50 units', time: '10m ago' },
+            { id: 2, title: 'New Sale Recorded', detail: 'Invoice INV-1003 generated for Apex Industries', time: '45m ago' },
+            { id: 3, title: 'Low Stock Alert', detail: 'Wireless Sensor Node dropped below threshold', time: '2h ago' }
+          ],
+          monthlySalesTrend: [
+            { month: 'Jan', revenue: 28000, profit: 9500 },
+            { month: 'Feb', revenue: 32000, profit: 11000 },
+            { month: 'Mar', revenue: 38000, profit: 13200 },
+            { month: 'Apr', revenue: 42100, profit: 14800 }
+          ],
+          weeklySales: [
+            { day: 'Mon', date: 'Jul 22', revenue: 5400 },
+            { day: 'Tue', date: 'Jul 23', revenue: 6200 },
+            { day: 'Wed', date: 'Jul 24', revenue: 5800 },
+            { day: 'Thu', date: 'Jul 25', revenue: 7100 },
+            { day: 'Fri', date: 'Jul 26', revenue: 8400 },
+            { day: 'Sat', date: 'Jul 27', revenue: 4900 },
+            { day: 'Sun', date: 'Jul 28', revenue: 4520 }
+          ],
+          inventoryTrend: [
+            { date: 'Mon', value: 180 },
+            { date: 'Tue', value: 175 },
+            { date: 'Wed', value: 190 },
+            { date: 'Thu', value: 185 },
+            { date: 'Fri', value: 210 },
+            { date: 'Sat', value: 205 },
+            { date: 'Sun', value: 198 }
+          ],
+          categoryDistribution: [
+            { name: 'Sensors & Controllers', value: 1200, count: 18 },
+            { name: 'Valves & Actuators', value: 850, count: 12 },
+            { name: 'Gateways & Networking', value: 450, count: 8 },
+            { name: 'Power & Accessories', value: 320, count: 10 }
+          ],
+          topSellingProducts: [
+            { id: 1, name: 'Smart Flow Controller X', salesCount: 142, revenue: 42598 },
+            { id: 2, name: 'Flow Meter Digital', salesCount: 98, revenue: 20580 }
+          ]
+        }
+
+        const fallbackAi = {
+          insights: [
+            { id: 1, type: 'opportunity', title: 'High Demand Detected', description: 'Smart Flow Controller X sales increased by 28% this week.' },
+            { id: 2, type: 'warning', title: 'Restock Recommended', description: 'Wireless Sensor Node will run out of stock in 3 days.' }
+          ],
+          demandForecast: [
+            { date: 'Week 1', forecast: 120, actual: 115 },
+            { date: 'Week 2', forecast: 135, actual: 130 },
+            { date: 'Week 3', forecast: 150, actual: null }
+          ],
+          recommendations: [
+            'Reorder 30 units of Wireless Sensor Node from primary supplier.',
+            'Consider bulk discount on Smart Flow Controller X.'
+          ]
+        }
+
+        const productsData = prodRes.status === 'fulfilled' && Array.isArray(prodRes.value?.data) && prodRes.value.data.length > 0 ? prodRes.value.data : (isBackendDown ? fallbackProducts : [])
+        const salesData = salesRes.status === 'fulfilled' && Array.isArray(salesRes.value?.data) && salesRes.value.data.length > 0 ? salesRes.value.data : (isBackendDown ? fallbackSales : [])
+        const summaryData = summaryRes.status === 'fulfilled' && summaryRes.value?.data && typeof summaryRes.value.data === 'object' && !Array.isArray(summaryRes.value.data) ? summaryRes.value.data : (isBackendDown ? fallbackSummary : null)
         const settingsData = settingsRes.status === 'fulfilled' && settingsRes.value?.data && typeof settingsRes.value.data === 'object' ? settingsRes.value.data : null
-        const aiData = aiRes.status === 'fulfilled' && aiRes.value?.data && typeof aiRes.value.data === 'object' ? aiRes.value.data : null
+        const aiData = aiRes.status === 'fulfilled' && aiRes.value?.data && typeof aiRes.value.data === 'object' ? aiRes.value.data : (isBackendDown ? fallbackAi : null)
 
         setProducts(productsData)
         setSales(salesData)
@@ -479,8 +565,11 @@ export default function Dashboard() {
         setSettings(settingsData)
         setAiAnalytics(aiData)
 
-        if (prodRes.status === 'rejected' || salesRes.status === 'rejected' || summaryRes.status === 'rejected') {
-          toast.error('Unable to connect to backend server. Verify VITE_API_URL in deployment.')
+        if (isBackendDown) {
+          toast('Backend unconfigured or offline. Showing demo metrics. Set VITE_API_URL in Vercel to connect live database.', {
+            icon: 'ℹ️',
+            duration: 5000
+          })
         }
       } catch (error) {
         console.error('Failed to load dashboard metrics', error)
