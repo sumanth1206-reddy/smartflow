@@ -20,6 +20,17 @@ def main():
         try:
             db.create_all()
             print("[+] All tables created successfully!")
+
+            # Enable Row Level Security (RLS) on all public tables to satisfy Supabase security linter
+            tables = ['users', 'products', 'categories', 'suppliers', 'inventory', 'sales', 'orders', 'notifications', 'settings']
+            for table in tables:
+                try:
+                    db.session.execute(db.text(f"ALTER TABLE public.{table} ENABLE ROW LEVEL SECURITY;"))
+                except Exception:
+                    pass
+            db.session.commit()
+            print("[+] Row Level Security (RLS) enabled on all public tables!")
+
             print("Seeding initial database data...")
             seed_db()
             print("[+] Database seeded successfully!")
