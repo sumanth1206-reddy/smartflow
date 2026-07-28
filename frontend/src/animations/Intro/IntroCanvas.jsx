@@ -158,7 +158,7 @@ export default function IntroCanvas({ onComplete, children }) {
   }, [])
 
   return (
-    <div className="intro-orchestrator-shell" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden', backgroundColor: '#ffffff' }}>
+    <div className="intro-orchestrator-shell" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'hidden', overflowY: 'auto', backgroundColor: '#ffffff' }}>
       
 
 

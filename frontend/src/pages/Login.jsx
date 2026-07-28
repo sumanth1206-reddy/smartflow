@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import Button from "../components/common/Button";
 import Input from "../components/common/Input";
+import Select from "../components/common/Select";
 import { useTranslation } from "react-i18next";
 import SmartFlowLogo from "../components/common/SmartFlowLogo";
 import ProductShowcase from "../components/common/ProductShowcase";
@@ -17,12 +18,12 @@ import ForgotPasswordModal from "../components/auth/ForgotPasswordModal";
 import LoadingSpinner from "../components/auth/LoadingSpinner";
 import IntroCanvas from "../animations/Intro/IntroCanvas";
 
-function validateRegistration(email, password, name, role) {
+function validateRegistration(email, password, confirmPassword, name, role) {
   const errors = {};
-  if (!name.trim()) {
-    errors.name = "Name is required";
+  if (!name || !name.trim()) {
+    errors.name = "Full Name is required";
   }
-  if (!email.trim()) {
+  if (!email || !email.trim()) {
     errors.email = "Email is required";
   } else if (!/\S+@\S+\.\S+/.test(email)) {
     errors.email = "Email address is invalid";
@@ -42,22 +43,34 @@ function validateRegistration(email, password, name, role) {
       errors.password = "Must contain at least one special character.";
     }
   }
+  if (!confirmPassword) {
+    errors.confirmPassword = "Please confirm your password";
+  } else if (password !== confirmPassword) {
+    errors.confirmPassword = "Passwords do not match";
+  }
   if (!role) {
-    errors.role = "Role is required";
+    errors.role = "Role / Post Category is required";
   }
   return errors;
 }
 
-export default function Login({ darkMode, setDarkMode }) {
+export default function Login({ darkMode, setDarkMode, isRegisterPage = false }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login, loginGoogle, loading } = useAuth();
 
-  const [isRegistering, setIsRegistering] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(isRegisterPage || location.pathname === "/register");
   const [registerLoading, setRegisterLoading] = useState(false);
   const [remember, setRemember] = useState(true);
   const [errors, setErrors] = useState({});
   const [authError, setAuthError] = useState("");
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+
+  useEffect(() => {
+    setIsRegistering(isRegisterPage || location.pathname === "/register");
+    setErrors({});
+    setAuthError("");
+  }, [isRegisterPage, location.pathname]);
 
   useEffect(() => {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
@@ -92,8 +105,9 @@ export default function Login({ darkMode, setDarkMode }) {
 
     if (isRegistering) {
       const name = form.name.value;
+      const confirmPassword = form.confirmPassword ? form.confirmPassword.value : "";
       const role = form.role.value;
-      const validation = validateRegistration(email, password, name, role);
+      const validation = validateRegistration(email, password, confirmPassword, name, role);
 
       if (Object.keys(validation).length) {
         setErrors(validation);
@@ -108,15 +122,20 @@ export default function Login({ darkMode, setDarkMode }) {
       const regResult = await registerService({ name, email, password, role });
 
       if (regResult.success) {
-        toast.success("Account created successfully! Logging you in...");
+        toast.success("Account created successfully!");
+        if (regResult.isDemo) {
+          setRegisterLoading(false);
+          window.location.href = "/";
+          return;
+        }
         const loginResult = await login(email, password, remember);
         setRegisterLoading(false);
         if (loginResult.success) {
           toast.success("Welcome to SmartFlow!");
           navigate("/");
         } else {
-          toast.error("Account created, but automatic login failed. Please sign in manually.");
-          setIsRegistering(false);
+          toast.error("Account created! Please sign in manually.");
+          navigate("/login");
         }
       } else {
         setRegisterLoading(false);
@@ -200,10 +219,12 @@ export default function Login({ darkMode, setDarkMode }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "32px 24px",
+          padding: "40px 24px",
           background: "var(--bg)",
           color: "var(--text)",
-          position: "relative"
+          position: "relative",
+          boxSizing: "border-box",
+          width: "100%"
         }}
       >
         {/* Top Right Tools: Theme Switcher */}
@@ -265,11 +286,11 @@ export default function Login({ darkMode, setDarkMode }) {
                   maxWidth: "540px"
                 }}
               >
-                Enterprise stock tracking, automated demand forecasting, and real-time operational analytics in one unified platform.
+                Enterprise stock tracking, automated demand forecasting, and intuitive management tools in one unified platform.
               </p>
             </div>
 
-            {/* 7 Floating UI Previews */}
+            {/* Product Feature Showcase */}
             <ProductShowcase />
           </motion.div>
 
@@ -300,39 +321,55 @@ export default function Login({ darkMode, setDarkMode }) {
               </h2>
               <p style={{ margin: 0, fontSize: "0.9rem", color: "var(--secondary-text)" }}>
                 {isRegistering
-                  ? "Select your system role to get started."
+                  ? "Enter your details and select your post category to register."
                   : "Welcome back. Sign in to access your inventory dashboard."}
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {isRegistering && (
                 <div>
-                  <Input label="Full Name" name="name" type="text" placeholder="Sumanth Reddy" />
+                  <Input label="Full Name" name="name" type="text" placeholder="e.g. Sumanth Reddy" required />
                   {errors.name && <small className="error-text">{errors.name}</small>}
                 </div>
               )}
 
               <div>
-                <Input label="Email" name="email" type="text" placeholder="reddysumanth1206@gmail.com" />
+                <Input label="Email Address" name="email" type="email" placeholder="name@company.com" required />
                 {errors.email && <small className="error-text">{errors.email}</small>}
               </div>
 
               <div>
                 <PasswordInput
-                  label="Password"
+                  label={isRegistering ? "Password Setting" : "Password"}
                   name="password"
-                  placeholder="238P1A04A8"
+                  placeholder="••••••••"
                   hint={isRegistering ? "Min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char" : null}
+                  required
                 />
                 {errors.password && <small className="error-text">{errors.password}</small>}
               </div>
 
               {isRegistering && (
                 <div>
-                  <Select label="Role" name="role" defaultValue="Cashier">
+                  <PasswordInput
+                    label="Confirm Password"
+                    name="confirmPassword"
+                    placeholder="••••••••"
+                    required
+                  />
+                  {errors.confirmPassword && <small className="error-text">{errors.confirmPassword}</small>}
+                </div>
+              )}
+
+              {isRegistering && (
+                <div>
+                  <Select label="Category / Post" name="role" defaultValue="Cashier">
                     <option value="Cashier">Cashier</option>
+                    <option value="Assistant Manager">Assistant Manager</option>
                     <option value="Operations Manager">Operations Manager</option>
+                    <option value="Store Manager">Store Manager</option>
+                    <option value="Inventory Specialist">Inventory Specialist</option>
                     <option value="Admin">Admin</option>
                   </Select>
                   {errors.role && <small className="error-text">{errors.role}</small>}
@@ -391,13 +428,13 @@ export default function Login({ darkMode, setDarkMode }) {
               </Button>
 
               {/* Divider */}
-              <div style={{ display: "flex", alignItems: "center", margin: "8px 0", color: "var(--muted)" }}>
+              <div style={{ display: "flex", alignItems: "center", margin: "4px 0", color: "var(--muted)" }}>
                 <div style={{ flex: 1, height: "1px", backgroundColor: "var(--border)" }} />
                 <span style={{ padding: "0 12px", fontSize: "0.78rem", textTransform: "uppercase", fontWeight: "600" }}>OR</span>
                 <div style={{ flex: 1, height: "1px", backgroundColor: "var(--border)" }} />
               </div>
 
-              {/* Google Sign In Placeholder */}
+              {/* Google Sign In */}
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
@@ -436,7 +473,11 @@ export default function Login({ darkMode, setDarkMode }) {
                   className="text-btn"
                   style={{ fontWeight: "700", color: "var(--accent)", background: "none", border: "none", cursor: "pointer", fontSize: "0.88rem" }}
                   onClick={() => {
-                    setIsRegistering(!isRegistering);
+                    if (isRegistering) {
+                      navigate("/login");
+                    } else {
+                      navigate("/register");
+                    }
                     setErrors({});
                     setAuthError("");
                   }}
@@ -455,4 +496,4 @@ export default function Login({ darkMode, setDarkMode }) {
       </div>
     </IntroCanvas>
   );
-}
+}

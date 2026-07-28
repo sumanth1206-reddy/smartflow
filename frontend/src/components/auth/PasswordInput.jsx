@@ -4,12 +4,14 @@ export default function PasswordInput({
   label,
   name,
   placeholder,
+  hint,
+  ...props
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="field">
-      <label className="field-label">{label}</label>
+      {label && <label className="field-label">{label}</label>}
 
       <div className="password-wrapper">
         <input
@@ -18,6 +20,7 @@ export default function PasswordInput({
           name={name}
           placeholder={placeholder}
           autoComplete="current-password"
+          {...props}
         />
 
         <button
@@ -28,6 +31,7 @@ export default function PasswordInput({
           {showPassword ? "🙈" : "👁"}
         </button>
       </div>
+      {hint && <span className="field-hint" style={{ fontSize: "0.75rem", color: "var(--muted)", marginTop: "4px", display: "block" }}>{hint}</span>}
     </div>
   );
 }

@@ -33,6 +33,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login darkMode={darkMode} setDarkMode={setDarkMode} />} />
+      <Route path="/register" element={<Login isRegisterPage={true} darkMode={darkMode} setDarkMode={setDarkMode} />} />
       <Route
         path="/"
         element={

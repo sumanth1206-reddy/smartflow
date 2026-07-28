@@ -6,7 +6,7 @@ class UserSchema(Schema):
     password = fields.Str(required=True, load_only=True, validate=validate.Length(min=6))
     name = fields.Str(validate=validate.Length(max=255))
     phone = fields.Str(validate=validate.Length(max=50))
-    role = fields.Str(validate=validate.OneOf(['Admin', 'Operations Manager', 'Cashier']))
+    role = fields.Str(validate=validate.OneOf(['Admin', 'Operations Manager', 'Store Manager', 'Assistant Manager', 'Inventory Specialist', 'Cashier']))
     address = fields.Str()
     created_at = fields.DateTime(dump_only=True)
     updated_at = fields.DateTime(dump_only=True)
