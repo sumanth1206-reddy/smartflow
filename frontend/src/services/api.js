@@ -10,7 +10,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('smartflow_token')
-    if (token) {
+    if (token && token !== 'demo-mock-jwt-token') {
       config.headers.Authorization = `Bearer ${token}`
     }
     return config
@@ -35,18 +35,29 @@ const processQueue = (error, token = null) => {
 }
 
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    // If backend endpoint returns HTML string (e.g. Vercel SPA rewrite fallback for /api), treat as error
+    if (typeof response.data === 'string' && response.data.trim().startsWith('<!DOCTYPE')) {
+      const htmlErr = new Error('Received HTML response instead of JSON. Backend URL may be unconfigured.')
+      htmlErr.response = { ...response, status: 502, data: { error: 'Backend unreachable or HTML returned' } }
+      return Promise.reject(htmlErr)
+    }
+    return response
+  },
   async (error) => {
     const originalRequest = error.config
     
     // Check if error status is 401 and request has not been retried yet
     if (error.response && error.response.status === 401 && !originalRequest._retry) {
       // If the request itself was the refresh call, do not retry to prevent infinite loops
-      if (originalRequest.url === '/auth/refresh') {
+      const isRefreshCall = originalRequest.url && originalRequest.url.includes('/auth/refresh')
+      if (isRefreshCall) {
         localStorage.removeItem('smartflow_token')
         localStorage.removeItem('smartflow_refresh_token')
         localStorage.removeItem('smartflow_user')
-        window.location.href = '/login'
+        if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+          window.location.href = '/login'
+        }
         return Promise.reject(error)
       }
 
@@ -83,13 +94,17 @@ api.interceptors.response.use(
           localStorage.removeItem('smartflow_token')
           localStorage.removeItem('smartflow_refresh_token')
           localStorage.removeItem('smartflow_user')
-          window.location.href = '/login'
+          if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+            window.location.href = '/login'
+          }
           return Promise.reject(refreshError)
         }
       } else {
         localStorage.removeItem('smartflow_token')
         localStorage.removeItem('smartflow_user')
-        window.location.href = '/login'
+        if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+          window.location.href = '/login'
+        }
       }
     }
     return Promise.reject(error)
@@ -97,3 +112,4 @@ api.interceptors.response.use(
 )
 
 export default api
+

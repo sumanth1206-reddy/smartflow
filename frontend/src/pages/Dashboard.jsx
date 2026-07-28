@@ -459,21 +459,31 @@ export default function Dashboard() {
     async function loadData() {
       try {
         setLoading(true)
-        const [prodRes, salesRes, summaryRes, settingsRes, aiRes] = await Promise.all([
+        const [prodRes, salesRes, summaryRes, settingsRes, aiRes] = await Promise.allSettled([
           api.get('/products'),
           api.get('/sales'),
           api.get('/dashboard/summary'),
           api.get('/settings'),
           api.get('/ai/analytics')
         ])
-        setProducts(prodRes.data)
-        setSales(salesRes.data)
-        setSummary(summaryRes.data)
-        setSettings(settingsRes.data)
-        setAiAnalytics(aiRes.data)
+
+        const productsData = prodRes.status === 'fulfilled' && Array.isArray(prodRes.value?.data) ? prodRes.value.data : []
+        const salesData = salesRes.status === 'fulfilled' && Array.isArray(salesRes.value?.data) ? salesRes.value.data : []
+        const summaryData = summaryRes.status === 'fulfilled' && summaryRes.value?.data && typeof summaryRes.value.data === 'object' && !Array.isArray(summaryRes.value.data) ? summaryRes.value.data : null
+        const settingsData = settingsRes.status === 'fulfilled' && settingsRes.value?.data && typeof settingsRes.value.data === 'object' ? settingsRes.value.data : null
+        const aiData = aiRes.status === 'fulfilled' && aiRes.value?.data && typeof aiRes.value.data === 'object' ? aiRes.value.data : null
+
+        setProducts(productsData)
+        setSales(salesData)
+        setSummary(summaryData)
+        setSettings(settingsData)
+        setAiAnalytics(aiData)
+
+        if (prodRes.status === 'rejected' || salesRes.status === 'rejected' || summaryRes.status === 'rejected') {
+          toast.error('Unable to connect to backend server. Verify VITE_API_URL in deployment.')
+        }
       } catch (error) {
         console.error('Failed to load dashboard metrics', error)
-        toast.error('Failed to load dashboard metrics')
       } finally {
         setLoading(false)
       }
