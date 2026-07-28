@@ -224,7 +224,8 @@ export default function Login({ darkMode, setDarkMode, isRegisterPage = false })
           color: "var(--text)",
           position: "relative",
           boxSizing: "border-box",
-          width: "100%"
+          width: "100%",
+          overflowY: "auto"
         }}
       >
         {/* Top Right Tools: Theme Switcher */}
@@ -341,7 +342,7 @@ export default function Login({ darkMode, setDarkMode, isRegisterPage = false })
 
               <div>
                 <PasswordInput
-                  label={isRegistering ? "Password Setting" : "Password"}
+                  label={isRegistering ? "Create Password" : "Password"}
                   name="password"
                   placeholder="••••••••"
                   hint={isRegistering ? "Min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char" : null}
